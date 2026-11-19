@@ -2,6 +2,23 @@
 
 LoanDocVerify is a local, containerized demonstration of loan application intake, document verification, evidence review, and applicant/officer collaboration. Each installation stores its own accounts, applications, and uploads.
 
+## Publish one shared demo website
+
+The repository does not host a live website by itself. The Render Blueprint below configures one public web service with persistent storage for its SQLite database and uploaded files. Creating that service requires a Render account and a paid web-service plan because Render persistent disks are available on paid services. Review the plan and disk charges in Render before deploying.
+
+1. Push this repository to GitHub, including `render.yaml`.
+2. Sign in to Render and choose **New > Blueprint**.
+3. Connect `TVSVEN/LoanDOC-Verify`, select the `main` branch, and review the `loandocverify` service and persistent disk.
+4. Deploy the Blueprint. Render builds the Dockerfile and assigns the service a public `https://...onrender.com` address.
+5. Open that address and create separate Applicant and Loan officer accounts. This hosted instance has its own database; accounts from a local Docker run are not copied to it.
+6. In GitHub, open the repository, use the gear next to **About**, paste the Render URL into **Website**, and save. Add the same URL to this README under **Live website**.
+
+**Live website:** Not deployed yet. A public URL can be added here after the Render service is deployed.
+
+The hosted service is for a synthetic-data demonstration only. Do not upload real borrower identity, financial, or loan documents. This project does not include the security, privacy, email recovery, malware scanning, monitoring, or compliance controls required for production lending data. Render's disk-backed service uses one instance and has a short interruption during redeploys; see [Render's persistent disk limitations](https://render.com/docs/disks).
+
+The Blueprint sets automatic deployment to off so repository visitors who create their own Render instance do not have it redeploy unexpectedly when this repository changes. To update the shared demo later, trigger a manual deploy from that service's Render dashboard.
+
 ## Run on Windows, macOS, or Linux
 
 ### Requirements

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: loandocverify
+    runtime: docker
+    plan: 0.5c-512mb
+    autoDeployTrigger: off
+    healthCheckPath: /healthz
+    disk:
+      name: loandocverify-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATA_DIR
+        value: /var/data
