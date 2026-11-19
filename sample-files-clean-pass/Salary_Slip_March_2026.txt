@@ -1,0 +1,6 @@
+Salary Slip
+Employee: Demo Applicant
+Employer: Northstar Analytics
+Month: March 2026
+Gross Salary: 85000
+Net Salary: 75000

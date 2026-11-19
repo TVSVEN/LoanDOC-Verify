@@ -1,0 +1,6 @@
+Salary Slip
+Employee: Walter White
+Employer: Salesman
+Month: March 2026
+Gross Salary: 115000
+Net Salary: 100000

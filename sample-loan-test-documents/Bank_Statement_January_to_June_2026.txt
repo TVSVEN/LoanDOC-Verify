@@ -1,0 +1,10 @@
+Bank Statement
+Account Holder: Demo Applicant
+Bank: Sample Community Bank
+Statement Period: January 2026 to June 2026
+Salary Credit January 2026: 75000
+Salary Credit February 2026: 75000
+Salary Credit March 2026: 75000
+Salary Credit April 2026: 75000
+Salary Credit May 2026: 75000
+Salary Credit June 2026: 75000

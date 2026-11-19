@@ -1,0 +1,4 @@
+Identity Proof (Aadhaar)
+Name: Demo Applicant
+Date of Birth: 12/06/1994
+Identity Number: XXXX XXXX 1234
