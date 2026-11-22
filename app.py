@@ -7,8 +7,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
-ROOT=Path(__file__).parent; DATA=Path(os.environ.get('DATA_DIR',str(ROOT/'data'))); UPLOADS=DATA/'uploads'; DB=DATA/'loandocverify.sqlite3'; PORT=int(os.environ.get('PORT','8000')); HOST=os.environ.get('HOST','127.0.0.1')
-DATA.mkdir(exist_ok=True); UPLOADS.mkdir(exist_ok=True)
+ROOT=Path(__file__).parent; DATA=Path(os.environ.get('DATA_DIR',str(ROOT/'data'))); UPLOADS=DATA/'uploads'; DB=DATA/'loandocverify.sqlite3'; PORT=int(os.environ.get('PORT','8000')); HOST=os.environ.get('HOST','0.0.0.0' if 'PORT' in os.environ else '127.0.0.1')
+DATA.mkdir(parents=True,exist_ok=True); UPLOADS.mkdir(parents=True,exist_ok=True)
 try:
  from pypdf import PdfReader
 except Exception: PdfReader=None
