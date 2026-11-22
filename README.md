@@ -8,7 +8,7 @@ Deploy the public demo on Render's **Free** web-service plan. The root [`render.
 
 **Free-plan behavior:** the site may sleep after 15 minutes without visitors and take about a minute to wake. Its filesystem is temporary, so user accounts, applications, and uploads created on the hosted demo reset after a sleep, restart, or redeploy. This is suitable for a synthetic-data demo, not durable records. Create fresh Applicant and Loan officer accounts on the hosted site; local accounts and files are not copied to it. Render documents [free-service limits](https://render.com/docs/free).
 
-**Live website:** Not deployed yet. Paste the `onrender.com` URL here after Render finishes the first deploy, then add the same URL to GitHub's **About > Website** field.
+**Live website:** https://loandocverify.onrender.com
 
 Use synthetic documents only. This project does not include the security, privacy, email recovery, malware scanning, monitoring, or compliance controls required for production lending data.
 
