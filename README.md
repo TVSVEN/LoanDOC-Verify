@@ -4,45 +4,11 @@ LoanDocVerify is a demonstration of loan application intake, document verificati
 
 ## Publish a free shared demo website
 
-The repository does not host a live website by itself. For a free hosted demo with persistent SQLite data and uploaded files, use PythonAnywhere's free web app. This repository includes [`pythonanywhere_wsgi.py`](pythonanywhere_wsgi.py), an adapter for its managed WSGI server.
+Deploy the public demo on Render's **Free** web-service plan. The root [`render.yaml`](render.yaml) explicitly selects the free plan and does not request a paid persistent disk, which was why the previous setup asked for payment. Create the service from [this Render deploy link](https://render.com/deploy?repo=https://github.com/TVSVEN/LoanDOC-Verify), sign in, review the service, and deploy it. Render will provide a public `*.onrender.com` URL that works in a browser on Windows, macOS, Linux, phones, and tablets. The GitHub repository remains the source; commits to `main` trigger redeployment.
 
-### Deploy on PythonAnywhere
+**Free-plan behavior:** the site may sleep after 15 minutes without visitors and take about a minute to wake. Its filesystem is temporary, so user accounts, applications, and uploads created on the hosted demo reset after a sleep, restart, or redeploy. This is suitable for a synthetic-data demo, not durable records. Create fresh Applicant and Loan officer accounts on the hosted site; local accounts and files are not copied to it. Render documents [free-service limits](https://render.com/docs/free).
 
-1. Create or sign in to a PythonAnywhere account and open a Bash console from **Consoles**.
-2. Clone the repository and install the dependencies:
-
-   ```sh
-   git clone https://github.com/TVSVEN/LoanDOC-Verify.git
-   cd LoanDOC-Verify
-   python3.12 -m venv ~/.virtualenvs/loandocverify
-   ~/.virtualenvs/loandocverify/bin/pip install -r requirements.txt
-   ```
-
-3. Open **Web > Add a new web app**, select the free `your-username.pythonanywhere.com` domain, choose **Manual configuration**, and select **Python 3.12**.
-4. In the **Virtualenv** section, enter `/home/YOUR_USERNAME/.virtualenvs/loandocverify` (replace `YOUR_USERNAME`).
-5. Open the WSGI configuration file linked in the **Code** section. Replace its contents with:
-
-   ```python
-   import sys
-
-   project = "/home/YOUR_USERNAME/LoanDOC-Verify"
-   if project not in sys.path:
-       sys.path.insert(0, project)
-
-   from pythonanywhere_wsgi import application
-   ```
-
-   Replace `YOUR_USERNAME` with the username shown in your PythonAnywhere account.
-
-6. Save the WSGI file and click **Reload** on the Web tab. Open `https://YOUR_USERNAME.pythonanywhere.com`.
-7. Create separate Applicant and Loan officer accounts on this hosted instance. Accounts and uploads from your local Docker installation are separate and are not copied over.
-8. After the site is live, add its URL to this repository's GitHub **About > Website** field and replace the **Live website** line below.
-
-**Live website:** Not deployed yet. Add the PythonAnywhere URL here after deployment.
-
-### Free hosting limits
-
-PythonAnywhere currently lists 512 MiB of disk space, one web app with one worker, and a one-month web-app expiry for free accounts. Renew the demo from the PythonAnywhere dashboard when it approaches expiry. Uploaded files and the SQLite database use that disk quota and persist in the account's home directory. See [PythonAnywhere free account features](https://help.pythonanywhere.com/pages/FreeAccountsFeatures/).
+**Live website:** Not deployed yet. Paste the `onrender.com` URL here after Render finishes the first deploy, then add the same URL to GitHub's **About > Website** field.
 
 Use synthetic documents only. This project does not include the security, privacy, email recovery, malware scanning, monitoring, or compliance controls required for production lending data.
 

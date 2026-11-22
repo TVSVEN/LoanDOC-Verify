@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: loandocverify
+    runtime: docker
+    plan: free
+    autoDeployTrigger: commit
+    healthCheckPath: /healthz
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: DATA_DIR
+        value: /var/data
